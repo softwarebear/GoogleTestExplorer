@@ -1,0 +1,62 @@
+.DS_Store
+
+####### .NET
+bin/
+obj/
+_ReSharper*/
+*.dotCover
+*.ncrunch*
+*.dbmdl
+*.dbproj.*
+
+*.suo
+*.user
+
+###### Vim
+*.swp
+###### C++ files
+*.sdf
+Debug/
+Release/
+Win32/
+x64/
+~Auto*
+*.unsuccessfulbuild
+*.opensdf
+###### Build artifacts
+Package/Source
+*.InstallLog
+code/cuckoo/
+GeneratedFiles
+packages
+TestResults
+
+ipch
+
+# Unix build artifact output
+code/build/
+
+# Unit tests
+code/restful-client-system-tests-unit
+code/restful-client-tests-unit
+code/test/
+restful-client-system-tests-unit.xml
+restful-client-tests-unit.xml
+
+BuildCommon
+
+
+#ignore auto-generated make files
+Makefile
+
+xcuserdata
+
+
+*.aps
+
+code/lib/qt-opensource/
+/Test.txt
+
+images.*
+MyWorkNow.xcodeproj/
+MyWorkNow.xcodeproj/project.xcworkspace/xcshareddata/
