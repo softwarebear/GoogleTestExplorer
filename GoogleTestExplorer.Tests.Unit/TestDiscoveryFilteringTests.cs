@@ -24,8 +24,6 @@
 
         private ITestListSource testListSource;
 
-        private ITestExecutableFilter testExecutableFilter;
-
         [SetUp]
         public void SetUp()
         {
@@ -75,7 +73,7 @@
 
         private void GivenThereAreNoTestExecutables()
         {
-            executables= new[] { "wibble.exe" };
+            executables = new[] { "wibble.exe" };
         }
 
         private void GivenThereAreTestExecutablesEndingWithTestOrTests()

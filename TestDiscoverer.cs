@@ -1,9 +1,8 @@
-﻿using System.Threading.Tasks;
-
-namespace GoogleTestExplorer
+﻿namespace GoogleTestExplorer
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Microsoft.VisualStudio.TestPlatform.ObjectModel;
     using Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter;
     using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
@@ -14,7 +13,7 @@ namespace GoogleTestExplorer
     {
         private readonly ITestExecutableFilter testExecutableFilter = new TestExecutableFilter();
 
-        private ITestListSource testListSource = new TestListSource();
+        private readonly ITestListSource testListSource = new TestListSource();
 
         public TestDiscoverer(ITestListSource testListSource)
         {
@@ -29,13 +28,16 @@ namespace GoogleTestExplorer
         {
             var recognisedSources = testExecutableFilter.FilterIn(sources);
 
-            Parallel.ForEach(recognisedSources, recognisedSource =>
-            {
-                foreach(var testCase in testListSource.FindTestsIn(recognisedSource))
-                {
-                    discoverySink.SendTestCase(new TestCase(testCase, new Uri(TestExecutor.ExecutorUri), recognisedSource));
-                }
-            } );
+            Parallel.ForEach(
+                recognisedSources,
+                recognisedSource =>
+                    {
+                        foreach (var testCase in testListSource.FindTestsIn(recognisedSource))
+                        {
+                            discoverySink.SendTestCase(
+                                new TestCase(testCase, new Uri(TestExecutor.ExecutorUri), recognisedSource));
+                        }
+                    });
         }
     }
 }

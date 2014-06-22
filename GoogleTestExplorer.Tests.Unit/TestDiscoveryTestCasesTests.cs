@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace GoogleTestExplorer.Tests.Unit
+﻿namespace GoogleTestExplorer.Tests.Unit
 {
+    using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using Microsoft.VisualStudio.TestPlatform.ObjectModel;
     using Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter;
@@ -17,7 +15,6 @@ namespace GoogleTestExplorer.Tests.Unit
     public class TestDiscoveryTestCasesTests
     {
         private ITestListSource testListSource;
-        private ITestExecutableFilter testExecutableFilter;
 
         private TestDiscoverer sut;
 
@@ -72,13 +69,13 @@ namespace GoogleTestExplorer.Tests.Unit
         private void GivenThereAreTestExecutablesWithSomeTestCases()
         {
             executables = new[] { "tests.exe" };
-            
-            testListSource
-                .FindTestsIn(Arg.Is("tests.exe"))
-                .Returns(ci => new []{"TestSuite.TestCase"});
 
-            testCaseDiscoverySink.SendTestCase(Arg.Is<TestCase>(tc => tc.FullyQualifiedName == "TestSuite.TestCase" 
-            && tc.ExecutorUri == new Uri("http://explorer.test.google.softwarebear.com")));
+            testListSource.FindTestsIn(Arg.Is("tests.exe"));
+
+            testCaseDiscoverySink.SendTestCase(
+                Arg.Is<TestCase>(
+                    tc => tc.FullyQualifiedName == "TestSuite.TestCase"
+                    && tc.ExecutorUri == new Uri("http://explorer.test.google.softwarebear.com")));
         }
 
         private void WhenTheUserRunsSomeTests()

@@ -1,9 +1,8 @@
 ﻿namespace GoogleTestExplorer
 {
     using System.Collections.Generic;
-    using System.Threading;
 
-    class TestListSource : ITestListSource
+    public class TestListSource : ITestListSource
     {
         public IEnumerable<string> FindTestsIn(string executablePath)
         {
