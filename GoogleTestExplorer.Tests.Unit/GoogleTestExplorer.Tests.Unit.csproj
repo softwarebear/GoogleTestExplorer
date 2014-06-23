@@ -62,7 +62,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GoogleTestExplorer.csproj">
+    <ProjectReference Include="..\GoogleTestExplorer\GoogleTestExplorer.csproj">
       <Project>{CA52803F-39DA-4523-BBF5-F72FAB7BBE74}</Project>
       <Name>GoogleTestExplorer</Name>
     </ProjectReference>

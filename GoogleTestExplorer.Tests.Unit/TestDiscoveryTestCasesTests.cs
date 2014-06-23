@@ -70,7 +70,7 @@
         {
             executables = new[] { "tests.exe" };
 
-            testListSource.FindTestsIn(Arg.Is("tests.exe"));
+            testListSource.FindTestsIn(Arg.Is("tests.exe")).Returns(new [] { "TestSuite.TestCase" });
 
             testCaseDiscoverySink.SendTestCase(
                 Arg.Is<TestCase>(
